@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>RSA Encryption and Decryption</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container1">
+            <div class="box_big">
+                <h1>RSA Encryption and Decryption</h1>
+                <h3>RSA Encryption and <br> Decryption</h3>
+                <p for="message">Message:</p>
+                <textarea id="message" placeholder="your message...." ></textarea>
+                <button class="btn1" onclick="encrypt()">Encrypt</button>
+                <button class="btn2" onclick="decrypt()">Decrypt</button>
+                <p class="text1">Encrypted message: </p>
+                <textarea id="encryptedMessage" ></textarea>
+                <p class="text2">Decrypted message: </p>
+                <textarea id="decryptedMessage" ></textarea>
+                <button class="clean" id="num2" onclick="clean()">Reset</button>
+                <img src="/blog-Ins-and-outs-of-cryptography-removebg-preview.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+
+        // RSA key generation
+        function generateKeys() {
+            let p, q, n, phi, e, d;
+           
+            p = 61;
+            q = 53;
+            n = p * q;
+            phi = (p - 1) * (q - 1);
+        
+            e = 17; 
+            d = modInverse(e, phi);
+        
+            return { publicKey: { e, n }, privateKey: { d, n } };
+        }
+        
+        // Function to calculate the modular inverse using the extended Euclidean algorithm
+        function modInverse(a, m) {
+            let m0 = m;
+            let x0 = 0;
+            let x1 = 1;
+        
+            if (m === 1) return 1;
+        
+            while (a > 1) {
+            let q = Math.floor(a / m);
+            let t = m;
+        
+            m = a % m;
+            a = t;
+            t = x0;
+            x0 = x1 - q * x0;
+            x1 = t;
+            }
+        
+            if (x1 < 0) x1 += m0;
+        
+            return x1;
+        }
+        
+        // RSA Encryption
+        function encrypt() {
+            const message = document.getElementById('message').value;
+            const keys = generateKeys();
+            const publicKey = keys.publicKey;
+            const n = publicKey.n;
+            const e = publicKey.e;
+        
+            let encryptedMessage = '';
+        
+            for (let i = 0; i < message.length; i++) {
+            const charCode = message.charCodeAt(i);
+            const encryptedCharCode = modPow(charCode, e, n);
+            encryptedMessage += encryptedCharCode + ' ';
+            }
+        
+            document.getElementById('encryptedMessage').textContent = encryptedMessage;
+        }
+        
+        // RSA Decryption
+        function decrypt() {
+            const encryptedMessage = document.getElementById('encryptedMessage').textContent.trim();
+            const keys = generateKeys();
+            const privateKey = keys.privateKey;
+            const n = privateKey.n;
+            const d = privateKey.d;
+        
+            let decryptedMessage = '';
+        
+            const encryptedCharCodes = encryptedMessage.split(' ').filter(code => code !== '');
+            for (const encryptedCharCode of encryptedCharCodes) {
+            const charCode = modPow(parseInt(encryptedCharCode), d, n);
+            decryptedMessage += String.fromCharCode(charCode);
+            }
+        
+            document.getElementById('decryptedMessage').textContent = decryptedMessage;
+        }
+        
+        // Function to calculate (base^exp) % modulus efficiently using the square and multiply algorithm
+        function modPow(base, exp, modulus) {
+            let result = 1;
+            base = base % modulus;
+        
+            while (exp > 0) {
+            if (exp % 2 === 1) {
+                result = (result * base) % modulus;
+            }
+            exp = Math.floor(exp / 2);
+            base = (base * base) % modulus;
+            }
+        
+            return result;
+            
+        }
+  
+        function clean() {
+            document.getElementById('message').value = '';
+            document.getElementById('encryptedMessage').textContent = '';
+            document.getElementById('decryptedMessage').textContent = '';
+        }
+        
+    </script>
+</body>
+</html>

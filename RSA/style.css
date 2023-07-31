@@ -1,0 +1,296 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    height: 110vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(5, 5, 40, 0.93);
+    background-image: url(/video-bg.png);
+}
+
+.container .container1{
+    margin: 0 auto;
+    width: 1050px;
+    height: 100%;
+    position: relative;
+   
+}
+.box_big{
+    margin-top: 40px;
+    margin-left: 50px;
+    position: relative;
+}
+.container1 .box_big h1{
+    color: aliceblue;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.container1 .box_big h3{
+    display: none;
+}
+.container1 .box_big label{
+    color: aliceblue;
+}
+
+.container1 .box_big p{
+    margin-bottom: 20px;
+    color: aliceblue;font-size: 21px;
+}
+#encryptedMessage{
+    width: 460px;
+    height: 80px;
+    padding-left: 10px;
+    margin-left: px;
+    
+}
+
+#decryptedMessage{
+    width: 460px;
+    height: 80px;
+    margin-left: 2px;
+    position: absolute;
+    bottom: -130px;
+    left: 0;
+    padding-left: 10px;
+    
+}
+.text1{
+    margin-top: -20px;
+    font-size: 2px;
+}
+.text2{
+    position: absolute;
+    top: 340px;
+}
+button{
+    font-size: 22px;
+    outline: none;
+    text-align: left;
+    padding-left: 0px3;
+}
+textarea{
+    padding-top: 26px;
+    width: 460px;
+    height: 80px;
+    padding-left: 15px;
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+    outline: none;
+}
+.btn1{
+    position: absolute;
+    bottom:-170px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    transition: 0.3s;
+}
+.box_big .btn1:hover{
+    color: red;
+    filter: brightness(90%);
+    transition: 0.3s;
+}
+.btn2{
+    position: absolute;
+    bottom:-170px;
+    left: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 145px;
+    height: 50px;
+    transition: 0.3s;
+}
+.box_big .btn2:hover{
+    color: red;
+    filter: brightness(90%);
+    transition: 0.3s;
+}
+.box_big .clean{
+    width:140px;
+    height:50px;
+    outline: none;
+    font-size: 20px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -170px;
+    left: 320px;
+    transition: 0.3s;
+}
+.box_big .clean:hover{
+    color: red;
+    filter: brightness(90%);
+    transition: 0.3s;
+}
+.box_big img{
+    position: absolute;
+    right:-130px;
+    top: 100px;
+    width: 600px;
+    height: 400px;
+}
+
+/* responsive phone size */
+@media only screen and (max-width: 768px){
+    .container{
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        height:730px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgba(5, 5, 40, 0.93);
+        background-image: url(/video-bg.png);
+    }
+    
+    .container .container1{
+        margin: 0 auto;
+        width: 1050px;
+        height: 100%;
+        position: relative;
+        overflow-x: hidden;
+    }
+    .box_big{
+        margin-top: 100px;
+        margin-left: 50px;
+        position: relative;
+        margin: auto;
+    }
+    .container1 .box_big h1{
+        color: aliceblue;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 25px;
+        display: none;
+    }
+    .container1 .box_big h3{
+        color: aliceblue;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 25px;
+        display: block;
+    }
+    .container1 .box_big label{
+        color: aliceblue;
+    }
+    
+    .container1 .box_big p{
+        margin-bottom: 4%;
+        margin-left: 9%;
+        color: aliceblue;
+        font-size: 13px;
+    }
+    .box_big #encryptedMessage{
+        width: 82%;
+        height: 50px;
+        padding-left: 10px;
+        margin: auto;
+        display: block;
+    }
+    
+    .box_big #decryptedMessage{
+        width: 82%;
+        height: 50px;
+        padding-left: 10px;
+        margin: auto;
+        margin-left: 9%;
+        margin-bottom: 10%;
+        display: block;
+    }
+    .text1{
+        margin-top: 4%;
+    }
+    .text2{
+      margin-top: -60px;
+      
+    }
+    .box_big textarea{
+        padding-top: 16px;
+        width: 82%;
+        height: 50px;
+        padding-left: 15px;
+        font-size: 13px;
+        outline: none;
+        display: block;
+        margin: auto;
+    }
+    .btn1{
+        margin-bottom: 6%;
+        margin-left:33px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 82%;
+        height: 40px;
+        transition: 0.3s;
+        font-size: 18px;
+        font-weight: 500;
+        color: black;
+        border-radius: 100PX;
+    }
+    .box_big .btn1:hover{
+        color: red;
+        filter: brightness(90%);
+        transition: 0.3s;
+    }
+    .btn2{
+        color: black;
+        border-radius: 100PX;
+        margin-bottom: -30px;
+        margin-left: -122px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 82%;
+        font-size: 18px;
+        font-weight: 500;
+        height: 40px;
+        transition: 0.3s;
+    }
+    .box_big .btn2:hover{
+        color: red;
+        filter: brightness(90%);
+        transition: 0.3s;
+    }
+
+    .box_big .clean{
+        color: black;
+        border-radius: 100PX;
+        width:82%;
+        height:40px;
+        font-size: 18px;
+        font-weight: 500;
+        outline: none;
+        font-size: 20px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: -285px;
+        margin-bottom:-84px;
+        transition: 0.3s;
+    }
+    .box_big .clean:hover{
+        color: red;
+        filter: brightness(90%);
+        transition: 0.3s;
+    }
+    .box_big img{
+        display: none;
+    }
+}
